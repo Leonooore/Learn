@@ -11,20 +11,20 @@ import java.util.Date;
 public class MyThread extends Thread {
 
     public DbxClientV2 client;
+    private static final SimpleDateFormat FORMATTER = new SimpleDateFormat("yyyymmdd_hhmmss");
 
     @Override
     public void run() {
         for (int i = 0; i < 5 ; i++){
             try {
                 BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-                sleep(5000);
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyymmdd_hhmmss");
                 Date now = new Date();
-                String fileName = formatter.format(now) + ".png";
+                String fileName = FORMATTER.format(now) + ".png";
                 ByteArrayOutputStream os = new ByteArrayOutputStream();
                 ImageIO.write(image, "png", os);
                 client.files().uploadBuilder("/" + fileName).uploadAndFinish(new ByteArrayInputStream(os.toByteArray()));
-                System.out.println("Screenshot " + fileName + " was uploaded " + formatter.format(now));
+                System.out.println("Screenshot " + fileName + " was uploaded " + FORMATTER.format(now));
+                sleep(5000);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
