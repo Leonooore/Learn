@@ -44,7 +44,7 @@ public class Main {
                 .count();
     }
 
-    public static List<User> removeUser(User user) {
+    static List<User> removeUser(User user) {
         users.removeIf(i -> i.equals(user));
         return users;
     }

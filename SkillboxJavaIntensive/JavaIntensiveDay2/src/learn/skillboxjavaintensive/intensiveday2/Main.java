@@ -5,7 +5,7 @@ import com.dropbox.core.v2.DbxClientV2;
 
 public class Main {
 
-    private static final String ACCESS_TOKEN = "8GpIngND9yAAAAAAAAAAOCRlq9e8PdDfc65e1CAeH_BfQhrLKrBGk_hV_IU9Amax";
+    private static final String ACCESS_TOKEN = "8GpIngND9yAAAAAAAAAAOjujNiqGWdoi7PdRBsWqU5FWXMpVuyqAm-baFkANbtL9";
 
     public static void main(String[] args) {
         DbxRequestConfig config = DbxRequestConfig.newBuilder("dropbox/java-tutorial").build();
